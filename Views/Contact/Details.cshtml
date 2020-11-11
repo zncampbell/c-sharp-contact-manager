@@ -1,0 +1,34 @@
+﻿@model Contact
+@{
+    string name = @Model.FirstName + " " + @Model.LastName;
+    ViewBag.Name = name;
+}
+
+<h2>Contact Details</h2>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+        <tr>
+            <td>Name:</td>
+            <td>@ViewBag.Name</td>
+        </tr>
+        <tr>
+            <td>Phone:</td>
+            <td>@Model.Phone</td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td>@Model.Category.Name</td>
+        </tr>
+        <tr>
+            <td>Organization:</td>
+            <td>@Model.Organization</td>
+        </tr>
+    </tbody>
+</table>
+<a asp-controller="Contact" asp-action="Edit" asp-route-id="@Model.ContactId" asp-route-slug="@Model.Slug" class="btn btn-primary">Edit</a>
+<a asp-controller="Contact" asp-action="Delete" asp-route-id="@Model.ContactId" asp-route-slug="@Model.Slug" class="btn btn-primary">Delete</a>
